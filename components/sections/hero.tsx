@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const STATS = [
@@ -8,21 +8,71 @@ const STATS = [
   { value: "Daily", label: "Job Leads Shared" },
 ];
 
+const AURORA_BLOBS = [
+  {
+    className: "-top-32 -right-20 h-[26rem] w-[26rem] bg-brand-gold/30",
+    animate: {
+      x: [0, -30, 10, 0],
+      y: [0, 25, -10, 0],
+      scale: [1, 1.18, 1.05, 1],
+      opacity: [0.35, 0.55, 0.3, 0.35],
+    },
+    duration: 15,
+    delay: 0,
+  },
+  {
+    className: "-bottom-40 -left-24 h-[30rem] w-[30rem] bg-brand-accent/30",
+    animate: {
+      x: [0, 25, -20, 0],
+      y: [0, -20, 15, 0],
+      scale: [1, 1.1, 1.22, 1],
+      opacity: [0.3, 0.5, 0.32, 0.3],
+    },
+    duration: 18,
+    delay: 1.5,
+  },
+  {
+    className: "top-1/3 left-1/4 h-[22rem] w-[22rem] bg-brand-navy-light/40",
+    animate: {
+      x: [0, -25, 20, 0],
+      y: [0, 15, -18, 0],
+      scale: [1, 1.08, 0.95, 1],
+      opacity: [0.2, 0.4, 0.22, 0.2],
+    },
+    duration: 21,
+    delay: 3,
+  },
+  {
+    className: "-top-10 left-1/3 h-64 w-64 bg-brand-gold/20",
+    animate: {
+      x: [0, 15, -12, 0],
+      y: [0, -12, 10, 0],
+      opacity: [0.15, 0.32, 0.15],
+    },
+    duration: 12,
+    delay: 0.8,
+  },
+];
+
 export function Hero() {
+  const reduce = useReducedMotion();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light px-6 py-20 text-center text-white">
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-gold/10 blur-3xl"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-brand-accent/10 blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
+      {AURORA_BLOBS.map((blob, i) => (
+        <motion.div
+          key={i}
+          aria-hidden
+          className={`pointer-events-none absolute mix-blend-screen rounded-full blur-[100px] ${blob.className}`}
+          animate={reduce ? undefined : blob.animate}
+          transition={{
+            duration: blob.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: blob.delay,
+          }}
+        />
+      ))}
 
       <motion.div
         className="relative mx-auto max-w-[1100px]"
