@@ -5,7 +5,6 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const STATS = [
   { value: "1,000+", label: "Clients Supported" },
-  { value: "3", label: "AI Career Tools" },
   { value: "Daily", label: "Job Leads Shared" },
 ];
 
