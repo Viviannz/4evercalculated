@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { LOGO_DATA_URI } from "@/lib/logo-data";
 
 const NAV_LINKS = [
   { href: "#tools", label: "AI Tools" },
@@ -15,18 +16,26 @@ const PRICING_LINKS = [
 
 export function Nav() {
   return (
-    <nav className="sticky top-0 z-[100] flex items-center justify-between bg-brand-navy px-6 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+    <motion.nav
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-0 z-[100] flex items-center justify-between bg-brand-navy px-6 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+    >
       <Link
         href="#"
         className="flex items-center text-xl font-extrabold tracking-tight text-white"
       >
-        <Image
-          src="/logo.png"
-          alt="Forevercalculated logo"
-          width={28}
-          height={28}
-          className="mr-2 rounded-[7px] object-cover"
-        />
+        <motion.span whileHover={{ rotate: 8, scale: 1.08 }} className="mr-2 inline-flex">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={LOGO_DATA_URI}
+            alt="Forevercalculated logo"
+            width={28}
+            height={28}
+            className="rounded-[7px] object-cover"
+          />
+        </motion.span>
         Forever<span className="text-brand-gold">Calculated</span>
       </Link>
 
@@ -79,12 +88,14 @@ export function Nav() {
         </li>
       </ul>
 
-      <a
+      <motion.a
         href="#service"
-        className="rounded-md bg-brand-gold px-5 py-2 text-sm font-bold text-brand-navy transition-opacity hover:opacity-90"
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.95 }}
+        className="rounded-md bg-brand-gold px-5 py-2 text-sm font-bold text-brand-navy"
       >
         Get Started
-      </a>
-    </nav>
+      </motion.a>
+    </motion.nav>
   );
 }

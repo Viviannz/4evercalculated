@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const FAQS = [
   {
@@ -68,7 +70,13 @@ export function Faq() {
   return (
     <section id="faq" className="px-6 py-18">
       <div className="mx-auto max-w-[1100px]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             FAQ
           </div>
@@ -78,9 +86,15 @@ export function Faq() {
           <p className="mx-auto max-w-[600px] text-brand-grey">
             Everything you need to know before getting started.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mx-auto mt-10 max-w-[800px] rounded-[10px] border-2 border-[#ffc107] bg-[#fff3cd] px-6 py-5">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          className="mx-auto mt-10 max-w-[800px] rounded-[10px] border-2 border-[#ffc107] bg-[#fff3cd] px-6 py-5"
+        >
           <p className="text-[0.95rem] leading-relaxed text-[#664d03]">
             <strong>The most important thing to understand:</strong>{" "}
             Forevercalculated is a career and tools service, not a
@@ -88,14 +102,21 @@ export function Faq() {
             guarantee employment. We give you everything you need to secure a
             remote role yourself.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mx-auto mt-10 max-w-[800px]">
+        <motion.div
+          className="mx-auto mt-10 max-w-[800px]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+        >
           {FAQS.map((item, i) => {
             const open = openIndex === i;
             return (
-              <div
+              <motion.div
                 key={item.q}
+                variants={fadeUp}
                 className="mb-3 overflow-hidden rounded-[10px] border border-brand-border"
               >
                 <button
@@ -104,20 +125,34 @@ export function Faq() {
                   className="flex w-full items-center justify-between bg-white px-6 py-5 text-left text-[0.95rem] font-semibold text-brand-navy"
                 >
                   {item.q}
-                  <ChevronDown
-                    className={`h-5 w-5 flex-none text-brand-accent transition-transform ${open ? "rotate-180" : ""}`}
-                    aria-hidden
-                  />
+                  <motion.span
+                    animate={{ rotate: open ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex-none"
+                  >
+                    <ChevronDown className="h-5 w-5 text-brand-accent" aria-hidden />
+                  </motion.span>
                 </button>
-                {open && (
-                  <div className="border-t border-brand-border px-6 pb-5 pt-4 text-[0.95rem] leading-relaxed text-[#444]">
-                    {item.a}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden border-t border-brand-border"
+                    >
+                      <div className="px-6 pb-5 pt-4 text-[0.95rem] leading-relaxed text-[#444]">
+                        {item.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

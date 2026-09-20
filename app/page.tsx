@@ -1,4 +1,3 @@
-import { DisclaimerBanner } from "@/components/sections/disclaimer-banner";
 import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
 import { AiTools } from "@/components/sections/ai-tools";
@@ -12,7 +11,6 @@ import { Footer } from "@/components/sections/footer";
 export default function Home() {
   return (
     <>
-      <DisclaimerBanner />
       <Nav />
       <Hero />
       <AiTools />

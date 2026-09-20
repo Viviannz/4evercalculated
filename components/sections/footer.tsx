@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LOGO_DATA_URI } from "@/lib/logo-data";
 
 const LINKS = [
   { href: "#tools", label: "AI Tools" },
@@ -12,8 +12,9 @@ export function Footer() {
   return (
     <footer className="mt-auto bg-brand-navy px-6 py-10 text-center text-white/70">
       <div className="mb-3 flex items-center justify-center text-[1.3rem] font-extrabold text-white">
-        <Image
-          src="/logo.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={LOGO_DATA_URI}
           alt="Forevercalculated logo"
           width={24}
           height={24}

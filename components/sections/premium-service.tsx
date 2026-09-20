@@ -1,7 +1,9 @@
 "use client";
 
 import { AlertTriangle } from "lucide-react";
+import { motion } from "framer-motion";
 import { Compose } from "@/components/ui/compose";
+import { fadeUp, scaleIn, viewportOnce } from "@/lib/motion";
 
 const FEATURES = [
   "Professionally revamped CV — ATS-friendly, tailored to remote roles",
@@ -24,7 +26,13 @@ export function PremiumService() {
   return (
     <section id="service" className="bg-brand-off-white px-6 py-18">
       <div className="mx-auto max-w-[1100px]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             Personalised Support
           </div>
@@ -35,9 +43,15 @@ export function PremiumService() {
             For remote job seekers who want expert human guidance at every
             stage.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mx-auto my-10 max-w-[900px] rounded-lg border-2 border-l-8 border-[#ffc107] bg-[#fff8e1] px-7 py-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          className="mx-auto my-10 max-w-[900px] rounded-lg border-2 border-l-8 border-[#ffc107] bg-[#fff8e1] px-7 py-6"
+        >
           <h3 className="mb-2.5 flex items-center gap-2 font-bold text-[#664d03]">
             <AlertTriangle className="h-5 w-5" aria-hidden />
             Please read before purchasing
@@ -51,9 +65,15 @@ export function PremiumService() {
             Outcomes depend on individual effort, experience, and current
             market conditions.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-6 grid grid-cols-1 items-center gap-10 rounded-2xl bg-gradient-to-br from-brand-navy to-brand-navy-light p-8 text-white md:grid-cols-2 md:p-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={scaleIn}
+          className="mt-6 grid grid-cols-1 items-center gap-10 rounded-2xl bg-gradient-to-br from-brand-navy to-brand-navy-light p-8 text-white md:grid-cols-2 md:p-12"
+        >
           <div>
             <h2 className="mb-4 text-2xl font-extrabold sm:text-3xl">
               Work From Home
@@ -104,21 +124,28 @@ export function PremiumService() {
               forevercalculated.com before purchasing.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-10 rounded-xl bg-brand-light-grey p-8 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          className="mt-10 rounded-xl bg-brand-light-grey p-8 text-center"
+        >
           <p className="mb-4 text-brand-grey">See what our clients are saying</p>
           <div className="flex flex-wrap justify-center gap-5">
-            <a
+            <motion.a
               href="https://instagram.com/forevercalculated"
               target="_blank"
               rel="noreferrer"
+              whileHover={{ scale: 1.05 }}
               className="font-semibold text-brand-accent hover:underline"
             >
               🌟 Success Stories @forevercalculated
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
+
 const STEPS = [
   {
     icon: "📄",
@@ -23,7 +28,13 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="px-6 py-18">
       <div className="mx-auto max-w-[1100px]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             How It Works
           </div>
@@ -34,12 +45,29 @@ export function HowItWorks() {
             A simple three-step process — whether you use our free AI tools or
             our premium 1-on-1 service.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
+        <motion.div
+          className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+        >
           {STEPS.map((s) => (
-            <div key={s.num} className="text-center">
-              <div className="mb-4 text-4xl">{s.icon}</div>
+            <motion.div
+              key={s.num}
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              className="text-center"
+            >
+              <motion.div
+                className="mb-4 text-4xl"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                {s.icon}
+              </motion.div>
               <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-brand-navy text-sm font-bold text-white">
                 {s.num}
               </div>
@@ -47,9 +75,9 @@ export function HowItWorks() {
                 {s.title}
               </h3>
               <p className="text-sm text-brand-grey">{s.body}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

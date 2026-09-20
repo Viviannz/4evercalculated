@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
+
 const ROLES = [
   { title: "Customer Service", body: "Support roles across various industries", tag: "High Demand" },
   { title: "Development", body: "Software and web development positions", tag: "High Demand" },
@@ -11,7 +16,13 @@ export function Roles() {
   return (
     <section className="bg-brand-off-white px-6 py-18">
       <div className="mx-auto max-w-[1100px]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             Remote Roles
           </div>
@@ -22,22 +33,31 @@ export function Roles() {
             We tailor your CV and application materials to the specific remote
             role and sector you are going after.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5">
+        <motion.div
+          className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+        >
           {ROLES.map((r) => (
-            <div
+            <motion.div
               key={r.title}
-              className="rounded-[10px] border border-brand-border bg-white p-6 text-center"
+              variants={fadeUp}
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="rounded-[10px] border border-brand-border bg-white p-6 text-center shadow-[0_2px_6px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.1)]"
             >
               <h3 className="mb-1.5 font-bold text-brand-navy">{r.title}</h3>
               <p className="mb-2.5 text-sm text-brand-grey">{r.body}</p>
               <span className="inline-block rounded-full bg-[#d4edda] px-2.5 py-1 text-xs font-semibold text-[#155724]">
                 {r.tag}
               </span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

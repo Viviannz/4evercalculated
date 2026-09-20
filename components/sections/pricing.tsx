@@ -1,8 +1,19 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp, scaleIn, viewportOnce } from "@/lib/motion";
+
 export function Pricing() {
   return (
     <section id="pricing" className="px-6 py-18">
       <div className="mx-auto max-w-[1100px]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             Pricing
           </div>
@@ -13,10 +24,19 @@ export function Pricing() {
             Professionally written application materials for multiple roles,
             at a fraction of the 1-on-1 programme price.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mx-auto mt-10 max-w-[340px]">
-          <div className="rounded-xl border border-brand-border bg-white p-6 text-center transition-shadow hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)]">
+        <motion.div
+          className="mx-auto mt-10 max-w-[340px]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={scaleIn}
+        >
+          <motion.div
+            whileHover={{ y: -6 }}
+            className="rounded-xl border border-brand-border bg-white p-6 text-center transition-shadow hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
+          >
             <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-grey">
               Bundle
             </div>
@@ -25,14 +45,16 @@ export function Pricing() {
             <div className="mb-4 text-sm font-semibold text-brand-accent">
               Tailored to 3 different roles
             </div>
-            <a
+            <motion.a
               href="mailto:forevercalculated@gmail.com?subject=CV%20%26%20Cover%20Letter%20Bundle%20(%C2%A375)"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               className="block rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
             >
               Get Started
-            </a>
-          </div>
-        </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

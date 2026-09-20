@@ -455,10 +455,11 @@ export function Compose({
                             </span>
                           </>
                         )}
-                      <span className={["flex-none transition-opacity", on ? "opacity-100" : "opacity-0"].join(" ")}>
+                        <span className={["flex-none transition-opacity", on ? "opacity-100" : "opacity-0"].join(" ")}>
                           <Kbd>↵</Kbd>
                         </span>
-                  </button>
+                      </button>
+                    </li>
                   );
                 })}
               </motion.ul>
