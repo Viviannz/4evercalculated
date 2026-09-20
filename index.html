@@ -228,6 +228,26 @@
   .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; }
   .footer-links a:hover { color: var(--white); }
 
+  .nav-links li.dropdown { position: relative; }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--navy);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    padding: 8px 0;
+    margin-top: 8px;
+    z-index: 200;
+    list-style: none;
+  }
+  .dropdown-menu li { list-style: none; }
+  .dropdown-menu a { display: block; padding: 10px 18px; white-space: nowrap; font-size: 0.85rem; }
+  .dropdown-menu a:hover { background: rgba(255,255,255,0.08); }
+  .nav-links li.dropdown:hover .dropdown-menu { display: block; }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .premium-box { grid-template-columns: 1fr; }
@@ -249,6 +269,13 @@
   <ul class="nav-links">
     <li><a href="#tools">AI Tools</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
+    <li class="dropdown">
+      <a href="#pricing">Pricing</a>
+      <ul class="dropdown-menu">
+        <li><a href="#pricing">CV &amp; Cover Letter Bundle &ndash; &#163;75</a></li>
+        <li><a href="#service">1-on-1 Coaching &ndash; &#163;199</a></li>
+      </ul>
+    </li>
     <li><a href="#service">1-on-1 Service</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -361,6 +388,26 @@
         <h3>Finance & Data</h3>
         <p>Bookkeeping, data entry, and analysis roles</p>
         <span class="role-tag">Stable</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">CV &amp; Cover Letter Bundle</h2>
+      <p class="section-sub">Professionally written application materials for multiple roles, at a fraction of the 1-on-1 programme price.</p>
+    </div>
+    <div class="pricing-grid" style="max-width:340px; margin:40px auto 0;">
+      <div class="price-card">
+        <div class="price-label">Bundle</div>
+        <div class="price-amount">&#163;75</div>
+        <div class="price-tool">3 CVs + 3 Cover Letters</div>
+        <div class="price-credits">Tailored to 3 different roles</div>
+        <a href="mailto:forevercalculated@gmail.com" class="btn-add">Get Started</a>
       </div>
     </div>
   </div>
