@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #212529;
+
+  /* Brand palette — derived from the ForeverCalculated infinity logo (#085042) */
+  --brand-navy: #085042;
+  --brand-navy-light: #0e8b73;
+  --brand-accent: #0db594;
+  --brand-accent-light: #e3fcf7;
+  --brand-accent-hover: #b9f8ec;
+  --brand-gold: #f0a500;
+  --brand-grey: #6c757d;
+  --brand-off-white: #f8f9fa;
+  --brand-light-grey: #f1f3f5;
+  --brand-border: #dee2e6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-light: var(--brand-navy-light);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-light: var(--brand-accent-light);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-grey: var(--brand-grey);
+  --color-brand-off-white: var(--brand-off-white);
+  --color-brand-light-grey: var(--brand-light-grey);
+  --color-brand-border: var(--brand-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
