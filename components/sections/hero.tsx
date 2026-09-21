@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+import PathDrawingPortfolioHero from "@/components/ui/path-drawing-portfolio-hero";
 
 const STATS = [
   { value: "1,000+", label: "Clients Supported" },
@@ -58,7 +58,15 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light px-6 py-20 text-center text-white">
+    <PathDrawingPortfolioHero
+      brand="ForeverCalculated"
+      eyebrow="Trusted by 1,000+ Remote Job Seekers"
+      tagline="Professional CV rewrites, interview prep, job leads, and AI career tools — everything you need to secure remote work, faster."
+      fromColor="#f0a500"
+      toColor="#0db594"
+      scrollTo="#tools"
+      className="overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light"
+    >
       {AURORA_BLOBS.map((blob, i) => (
         <motion.div
           key={i}
@@ -75,39 +83,12 @@ export function Hero() {
       ))}
 
       <motion.div
-        className="relative mx-auto max-w-[1100px]"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
+        className="relative z-10 mt-2 flex flex-col items-center"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
       >
-        <motion.div
-          variants={fadeUp}
-          className="mb-6 inline-block rounded-full border border-brand-gold bg-brand-gold/15 px-4 py-1.5 text-sm font-semibold tracking-wide text-brand-gold"
-        >
-          🌍 Trusted by 1,000+ Remote Job Seekers
-        </motion.div>
-
-        <motion.h1
-          variants={fadeUp}
-          className="mb-5 text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl"
-        >
-          Land Your <span className="text-brand-gold">Remote Role</span>
-          <br />
-          With AI-Powered Support
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          className="mx-auto mb-8 max-w-[600px] text-lg text-white/80"
-        >
-          Professional CV rewrites, interview prep, job leads, and AI career
-          tools — everything you need to secure remote work, faster.
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          className="mb-9 flex flex-wrap justify-center gap-10"
-        >
+        <div className="mb-9 flex flex-wrap justify-center gap-10">
           {STATS.map((s) => (
             <div key={s.label} className="text-center">
               <div className="text-2xl font-extrabold text-brand-gold">
@@ -118,12 +99,9 @@ export function Hero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap justify-center gap-4"
-        >
+        <div className="flex flex-wrap justify-center gap-4">
           <motion.a
             href="#tools"
             whileHover={{ scale: 1.04, y: -2 }}
@@ -140,8 +118,8 @@ export function Hero() {
           >
             View 1-on-1 Service
           </motion.a>
-        </motion.div>
+        </div>
       </motion.div>
-    </section>
+    </PathDrawingPortfolioHero>
   );
 }
