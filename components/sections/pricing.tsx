@@ -26,10 +26,10 @@ export function Pricing() {
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             Pricing
           </div>
-          <h2 className="mb-4 text-2xl font-extrabold text-brand-navy sm:text-3xl md:text-4xl">
+          <h2 className="mb-4 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
             Choose the Support Level That&apos;s Right for You
           </h2>
-          <p className="mx-auto max-w-[600px] text-brand-grey">
+          <p className="mx-auto max-w-[600px] text-white/70">
             From a one-off CV refresh to full 1-on-1 support — pick the option
             that matches how much help you want along the way.
           </p>
@@ -40,13 +40,13 @@ export function Pricing() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="mx-auto mt-8 max-w-[900px] rounded-lg border-2 border-l-8 border-[#ffc107] bg-[#fff8e1] px-7 py-6"
+          className="mx-auto mt-8 max-w-[900px] rounded-lg border-2 border-l-8 border-brand-gold bg-brand-gold/10 px-7 py-6"
         >
-          <h3 className="mb-2.5 flex items-center gap-2 font-bold text-[#664d03]">
+          <h3 className="mb-2.5 flex items-center gap-2 font-bold text-brand-gold">
             <AlertTriangle className="h-5 w-5" aria-hidden />
             Please read before purchasing
           </h3>
-          <p className="text-[0.95rem] leading-relaxed text-[#664d03]">
+          <p className="text-[0.95rem] leading-relaxed text-white/85">
             Forevercalculated is a <strong>career and tools service, not a
             recruitment agency.</strong> We do not apply for jobs on your
             behalf, contact employers, or guarantee employment. We provide
@@ -67,16 +67,16 @@ export function Pricing() {
           <motion.div
             variants={scaleIn}
             whileHover={{ y: -6 }}
-            className="flex flex-col rounded-xl border border-brand-border bg-white p-7 text-center transition-shadow hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
+            className="flex flex-col rounded-xl border border-white/10 bg-white/[0.06] p-7 text-center transition-shadow hover:shadow-[0_10px_28px_rgba(0,0,0,0.4)]"
           >
-            <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-grey">
+            <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-white/60">
               Bundle
             </div>
-            <h3 className="mb-1 text-lg font-bold text-brand-navy">
+            <h3 className="mb-1 text-lg font-bold text-white">
               CV &amp; Cover Letter Bundle
             </h3>
-            <div className="mb-1 text-4xl font-extrabold text-brand-navy">£75</div>
-            <div className="mb-2 text-sm text-brand-grey">3 CVs + 3 Cover Letters</div>
+            <div className="mb-1 text-4xl font-extrabold text-white">£75</div>
+            <div className="mb-2 text-sm text-white/70">3 CVs + 3 Cover Letters</div>
             <div className="mb-6 text-sm font-semibold text-brand-accent">
               Tailored to 3 different roles
             </div>
@@ -84,7 +84,7 @@ export function Pricing() {
               href="mailto:forevercalculated@gmail.com?subject=CV%20%26%20Cover%20Letter%20Bundle%20(%C2%A375)"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="mt-auto block rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
+              className="mt-auto block rounded-md border-2 border-white/30 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Get Started
             </motion.a>
@@ -130,9 +130,9 @@ export function Pricing() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="mt-10 rounded-xl bg-brand-light-grey p-8 text-center"
+          className="mt-10 rounded-xl bg-white/[0.05] p-8 text-center"
         >
-          <p className="mb-4 text-brand-grey">See what our clients are saying</p>
+          <p className="mb-4 text-white/70">See what our clients are saying</p>
           <div className="flex flex-wrap justify-center gap-5">
             <motion.a
               href="https://instagram.com/forevercalculated"

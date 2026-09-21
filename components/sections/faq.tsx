@@ -80,10 +80,10 @@ export function Faq() {
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             FAQ
           </div>
-          <h2 className="mb-4 text-2xl font-extrabold text-brand-navy sm:text-3xl md:text-4xl">
+          <h2 className="mb-4 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mx-auto max-w-[600px] text-brand-grey">
+          <p className="mx-auto max-w-[600px] text-white/70">
             Everything you need to know before getting started.
           </p>
         </motion.div>
@@ -93,9 +93,9 @@ export function Faq() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="mx-auto mt-10 max-w-[800px] rounded-[10px] border-2 border-[#ffc107] bg-[#fff3cd] px-6 py-5"
+          className="mx-auto mt-10 max-w-[800px] rounded-[10px] border-2 border-brand-gold bg-brand-gold/10 px-6 py-5"
         >
-          <p className="text-[0.95rem] leading-relaxed text-[#664d03]">
+          <p className="text-[0.95rem] leading-relaxed text-white/85">
             <strong>The most important thing to understand:</strong>{" "}
             Forevercalculated is a career and tools service, not a
             recruitment agency. We do not apply for jobs on your behalf or
@@ -117,12 +117,12 @@ export function Faq() {
               <motion.div
                 key={item.q}
                 variants={fadeUp}
-                className="mb-3 overflow-hidden rounded-[10px] border border-brand-border"
+                className="mb-3 overflow-hidden rounded-[10px] border border-white/10"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(open ? null : i)}
-                  className="flex w-full items-center justify-between bg-white px-6 py-5 text-left text-[0.95rem] font-semibold text-brand-navy"
+                  className="flex w-full items-center justify-between bg-white/[0.06] px-6 py-5 text-left text-[0.95rem] font-semibold text-white"
                 >
                   {item.q}
                   <motion.span
@@ -141,9 +141,9 @@ export function Faq() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden border-t border-brand-border"
+                      className="overflow-hidden border-t border-white/10"
                     >
-                      <div className="px-6 pb-5 pt-4 text-[0.95rem] leading-relaxed text-[#444]">
+                      <div className="px-6 pb-5 pt-4 text-[0.95rem] leading-relaxed text-white/75">
                         {item.a}
                       </div>
                     </motion.div>

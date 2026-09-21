@@ -38,10 +38,10 @@ export function HowItWorks() {
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-accent">
             How It Works
           </div>
-          <h2 className="mb-4 text-2xl font-extrabold text-brand-navy sm:text-3xl md:text-4xl">
+          <h2 className="mb-4 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
             Get Started in Minutes
           </h2>
-          <p className="mx-auto max-w-[600px] text-brand-grey">
+          <p className="mx-auto max-w-[600px] text-white/70">
             A simple three-step process — whether you use our free AI tools or
             our premium 1-on-1 service.
           </p>
@@ -68,13 +68,13 @@ export function HowItWorks() {
               >
                 {s.icon}
               </motion.div>
-              <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-brand-navy text-sm font-bold text-white">
+              <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-brand-gold text-sm font-bold text-brand-navy">
                 {s.num}
               </div>
-              <h3 className="mb-2 text-lg font-bold text-brand-navy">
+              <h3 className="mb-2 text-lg font-bold text-white">
                 {s.title}
               </h3>
-              <p className="text-sm text-brand-grey">{s.body}</p>
+              <p className="text-sm text-white/70">{s.body}</p>
             </motion.div>
           ))}
         </motion.div>

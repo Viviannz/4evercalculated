@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #212529;
+  --background: #085042;
+  --foreground: #f5f7f6;
 
   /* Brand palette — derived from the ForeverCalculated infinity logo (#085042) */
   --brand-navy: #085042;
