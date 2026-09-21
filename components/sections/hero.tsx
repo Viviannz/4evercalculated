@@ -63,7 +63,7 @@ export function Hero() {
       eyebrow="Trusted by 1,000+ Remote Job Seekers"
       tagline="Professional CV rewrites, interview prep, job leads, and AI career tools — everything you need to secure remote work, faster."
       fromColor="#f0a500"
-      toColor="#0db594"
+      toColor="#4c7fff"
       scrollTo="#tools"
       className="overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light"
     >

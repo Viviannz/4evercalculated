@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #085042;
+  --background: #0a0e24;
   --foreground: #f5f7f6;
 
-  /* Brand palette — derived from the ForeverCalculated infinity logo (#085042) */
-  --brand-navy: #085042;
-  --brand-navy-light: #0e8b73;
-  --brand-accent: #0db594;
-  --brand-accent-light: #e3fcf7;
-  --brand-accent-hover: #b9f8ec;
+  /* Brand palette — velvet/royal blue, derived from the ForeverCalculated infinity logo (#10225c) */
+  --brand-navy: #10225c;
+  --brand-navy-light: #2541b2;
+  --brand-accent: #4c7fff;
+  --brand-accent-light: #eaf0ff;
+  --brand-accent-hover: #c9d6ff;
   --brand-gold: #f0a500;
   --brand-grey: #6c757d;
   --brand-off-white: #f8f9fa;
